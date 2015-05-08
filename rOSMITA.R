@@ -61,7 +61,7 @@ ita_ex_node_overpass=function(nameadm3="venezia",expr="place=*"){
 
 ##########################################################################################################
 
-ita_ex_way_overpass=function(nameadm3="venezia",expr="buildings=*"){
+ita_ex_way_overpass=function(nameadm3="venezia",expr="building=*"){
   require(osmar)
   require(downloader)
   t_bbox=get_bbox_ita_comuni(nameadm3)
@@ -87,7 +87,7 @@ retrieve_node_overpass=function(file,bbox,expr="place=*"){
 
 
 
-retrieve_way_overpass=function(file,bbox,expr="buildings=*"){
+retrieve_way_overpass=function(file,bbox,expr="building=*"){
   require(osmar)
   require(downloader)
   myURL <- paste0("http://overpass-api.de/api/xapi?way[bbox=",bbox[1,1],",",bbox[2,1],",",bbox[1,2],",",bbox[2,2],"][",expr,"]")
@@ -110,9 +110,9 @@ get_osm_ITA_osm=function(nameadm3="venezia"){
                ".osm.zip")
   
   filename=paste0(as.character(comuni_ita_bounds$name[grep(nameadm3,comuni_ita_bounds[,2],ignore.case=T)]),
-                  "---",
-                  as.character(comuni_ita_bounds$id_adm_ITA[grep(nameadm3,comuni_ita_bounds[,2],ignore.case=T)]),
-                  ".osm")
+                "---",
+                as.character(comuni_ita_bounds$id_adm_ITA[grep(nameadm3,comuni_ita_bounds[,2],ignore.case=T)]),
+                ".osm")
   
   download(myURL, dest="dataset.zip", mode="wb") 
   Sys.sleep(1)
@@ -137,6 +137,8 @@ overpassJsonToDataframe <- function(jsonstring) {
 }
 
 
+#####################################################################################################################
+# References
 
 # http://rstudio-pubs-static.s3.amazonaws.com/12696_9fd49fb7055c40ff9b3a3ea740e13ab3.html
 # http://wiki.openstreetmap.org/wiki/Overpass_API/Overpass_API_by_Example
