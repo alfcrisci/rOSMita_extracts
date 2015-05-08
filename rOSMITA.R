@@ -1,15 +1,10 @@
 library(rgdal)
-library(rwikidata)
-library(wikipediatrend)
 library(jsonlite)
 library(osmar)
 require(maptools)  # spCbind
-library(geojsonio)
 library(rgeos)
 library(httr)
 library(downloader)
-#########################################################################################
-setwd("/home/alf/Scrivania/lav_ubu_osm")
 
 
 ################################################################################################################à
