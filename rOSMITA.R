@@ -5,6 +5,7 @@ require(maptools)  # spCbind
 library(rgeos)
 library(httr)
 library(downloader)
+library(roverpass)
 
 
 ################################################################################################################à
